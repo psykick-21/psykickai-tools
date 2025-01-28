@@ -1,7 +1,7 @@
 [project]
 name = "psykickai-tools"
 version = "0.1.0"
-description = ""
+description = "A collection of reusable Python tools and utilities (logging, etc.) designed to streamline project setup and provide out-of-the-box functionality for common development needs."
 authors = [
     {name = "Gaurav Sharma",email = "psykickai@gmail.com"}
 ]
@@ -13,7 +13,18 @@ dependencies = [
 
 [tool.poetry]
 packages = [
-    {include = "src"}
+    {include = "psykickai_tools"}
+]
+license = "MIT"
+homepage = "https://github.com/psykick-21/psykickai-tools"
+repository = "https://github.com/psykick-21/psykickai-tools"
+keywords = ["python", "tools", "utilities", "logging"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12"
 ]
 
 [build-system]
