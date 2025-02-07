@@ -79,3 +79,42 @@ except PermissionError:
 except IOError as e:
     print(f"IO Error: {e}")
 ```
+
+### Web Operations
+
+The web module provides utilities for interacting with various web services and APIs. Currently, it includes:
+
+#### YouTube Transcript Extraction
+
+Extract transcripts from YouTube videos with optional timestamp information.
+
+```python
+from psykickai_tools.web import fetch_transcript
+
+# Get plain text transcript
+url = "https://www.youtube.com/watch?v=your_video_id"
+transcript = fetch_transcript(url)
+print(transcript)  # Prints the full transcript as a single string
+
+# Get transcript with timestamps
+transcript_with_time = fetch_transcript(url, with_timestamp=True)
+for segment in transcript_with_time:
+    print(f"[{segment['start']}s] {segment['text']}")
+```
+
+Key Features:
+- Extract transcripts from any YouTube video URL
+- Option to get timestamps with transcript segments
+- Comprehensive error handling for invalid URLs or unavailable transcripts
+- Integrated logging for debugging and monitoring
+- Type hints and complete documentation
+
+Example Error Handling:
+```python
+try:
+    transcript = fetch_transcript("https://www.youtube.com/watch?v=invalid_id")
+except ValueError as e:
+    print(f"Error: {e}")  # Will show detailed error message
+```
+
+Note: This functionality requires the `youtube-transcript-api` package, which is automatically installed with this library.
