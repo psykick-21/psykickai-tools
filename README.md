@@ -84,6 +84,57 @@ except IOError as e:
 
 The web module provides utilities for interacting with various web services and APIs. Currently, it includes:
 
+#### Webpage Content Loader
+
+The WebpageLoader class provides a robust way to load and parse content from web pages. It supports loading single or multiple URLs simultaneously, with metadata extraction and content parsing.
+
+```python
+from psykickai_tools.web import WebpageLoader
+
+# Load a single webpage
+loader = WebpageLoader("https://example.com")
+loader.load()
+documents = loader.get_documents()  # Get content as formatted strings
+print(documents[0])  # Print the content of the webpage
+
+# Load multiple webpages
+urls = [
+    "https://example.com/page1",
+    "https://example.com/page2"
+]
+loader = WebpageLoader(urls)
+loader.load()
+
+# Get structured content with metadata
+structured_docs = loader.get_documents(as_string=False)
+for doc in structured_docs:
+    print(f"Title: {doc.metadata.browser_title}")
+    print(f"Language: {doc.metadata.language}")
+    print(f"Content lines: {len(doc.content_lines)}")
+```
+
+Key Features:
+- Load single or multiple webpages in sequence
+- Extract metadata including title, language, section numbers, and meta tags
+- Clean content extraction with automatic script and style removal
+- Configurable parser type (HTML or XML)
+- Comprehensive error handling for failed requests
+- Detailed logging for debugging and monitoring
+- Type hints and complete documentation
+
+Example Error Handling:
+```python
+loader = WebpageLoader("https://nonexistent-site.com")
+loader.load()
+documents = loader.get_documents()
+if documents and documents[0].startswith("Error:"):
+    print("Failed to load webpage:", documents[0])
+```
+
+Dependencies:
+- `requests`: For making HTTP requests
+- `beautifulsoup4`: For HTML/XML parsing
+
 #### YouTube Transcript Extraction
 
 Extract transcripts from YouTube videos with optional timestamp information.
