@@ -1,6 +1,6 @@
 [project]
 name = "psykickai-tools"
-version = "0.1.0"
+version = "0.2.0"
 description = "A collection of reusable Python tools and utilities (logging, etc.) designed to streamline project setup and provide out-of-the-box functionality for common development needs."
 authors = [
     {name = "Gaurav Sharma",email = "psykickai@gmail.com"}
