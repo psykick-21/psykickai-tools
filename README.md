@@ -2,7 +2,43 @@
 
 A collection of reusable Python tools and utilities (logging, etc.) designed to streamline project setup and provide out-of-the-box functionality for common development needs.
 
-## Available functionalities
+![PyPI version](https://img.shields.io/pypi/v/psykickai-tools) ![Python versions](https://img.shields.io/pypi/pyversions/psykickai-tools) ![Build Status](https://img.shields.io/github/workflow/status/psykick-21/psykickai-tools/CI)
+
+## Installation
+
+You can install the package using pip:
+
+```bash
+pip install psykickai-tools
+```
+
+## Development Setup
+
+To set up a development environment, follow these steps:
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/psykick-21/psykickai-tools.git
+   cd psykickai-tools
+   ```
+
+2. **Create a virtual environment (optional but recommended):**
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+   ```
+
+3. **Install the development dependencies:**
+   ```bash
+   pip install -e .[dev]
+   ```
+
+4. **Run tests to ensure everything is working:**
+   ```bash
+   pytest
+   ```
+
+## Available Functionalities
 
 ### Logger
 
@@ -131,10 +167,6 @@ if documents and documents[0].startswith("Error:"):
     print("Failed to load webpage:", documents[0])
 ```
 
-Dependencies:
-- `requests`: For making HTTP requests
-- `beautifulsoup4`: For HTML/XML parsing
-
 #### YouTube Transcript Extraction
 
 Extract transcripts from YouTube videos with optional timestamp information.
@@ -169,3 +201,11 @@ except ValueError as e:
 ```
 
 Note: This functionality requires the `youtube-transcript-api` package, which is automatically installed with this library.
+
+## Contributing
+
+We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for more information.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
